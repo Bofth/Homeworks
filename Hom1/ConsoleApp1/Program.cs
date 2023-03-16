@@ -160,13 +160,13 @@ namespace ConsoleApp1
             Console.WriteLine("Who made the order?:");
             ViewClients();
             buyer.Add(nameClient[Int32.Parse(Console.ReadLine())]);
-            Console.WriteLine("What do we order?(Whrite 0 for stop):");
+            Console.WriteLine("What do we order?(Whrite -1 for stop):");
             ViewDishes();
             int costOrder = 0;
             while (true)
             {
                 int dishesname =Int32.Parse(Console.ReadLine());
-                if (dishesname == 0){ break;}
+                if (dishesname == -1){break;}
                 orderedDish.Add(dishes[dishesname]);
                 Console.WriteLine("Dish added");
                 costOrder += priseDish[dishesname];
