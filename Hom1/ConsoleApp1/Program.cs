@@ -25,7 +25,7 @@ namespace ConsoleApp1
                 Console.WriteLine("10. View Tables");
                 Console.WriteLine("11. View Clients");
                 Console.WriteLine("0. Exit");
-                int option = Int32.Parse(Console.ReadLine());
+                byte option = Byte.Parse(Console.ReadLine());
                 switch (option)
                 {
                     case 1:
@@ -64,6 +64,9 @@ namespace ConsoleApp1
                     case 12:
                         a.ViewOrder();
                         break;
+                    case 0:
+                        Console.WriteLine("Bye-bye");
+                        return;
                     default:
                         Console.WriteLine("Invalid option!");
                         break;
