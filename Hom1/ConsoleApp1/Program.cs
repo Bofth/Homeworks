@@ -25,7 +25,7 @@ namespace ConsoleApp1
                 Console.WriteLine("10. View Tables");
                 Console.WriteLine("11. View Clients");
                 Console.WriteLine("0. Exit");
-                int option = int.Parse(Console.ReadLine());
+                int option = Int32.Parse(Console.ReadLine());
                 switch (option)
                 {
                     case 1:
@@ -70,37 +70,34 @@ namespace ConsoleApp1
                 }
             }
         }
-
-        
-
     }
     public class RestorantManagment
     {
-        List<string> dishes = new List<string>();
+       private List<string> dishes = new List<string>();
 
-        List<string> order = new List<string>();
+       private List<string> order = new List<string>();
 
-        List<string> ingredients = new List<string>();
+       private List<string> ingredients = new List<string>();
 
-        List<string> employees = new List<string>();
+       private List<string> employees = new List<string>();
 
-        List<int> tables = new List<int>();
+       private List<int> tables = new List<int>();
 
-        List<string> position = new List<string>();
+       private List<string> position = new List<string>();
 
-        List<int> priseIngridient = new List<int>();
+       private List<int> priseIngridient = new List<int>();
 
-        List<int> numberOfSeats = new List<int>();
+       private List<int> numberOfSeats = new List<int>();
 
-        List<string> nameClient = new List<string>();
+       private List<string> nameClient = new List<string>();
 
-        List<int> nummerClient = new List<int>();
+       private List<int> nummerClient = new List<int>();
 
-        List<int> priseDish = new List<int>();
+       private List<int> priseDish = new List<int>();
 
-        List<string> buyer = new List<string>();
+       private List<string> buyer = new List<string>();
 
-        List<string> orderedDish = new List<string>();
+       private List<string> orderedDish = new List<string>();
 
         public void AddDish()
         {
