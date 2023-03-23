@@ -18,7 +18,7 @@ namespace Hom2
                 Console.WriteLine("4. Edit Project");
                 Console.WriteLine("5. Manage Project Team");
                 Console.WriteLine("6. View Project Status Reports");
-                Console.WriteLine("0. Exit  іва");
+                Console.WriteLine("0. Exit");
 
                 int choice = int.Parse(Console.ReadLine());
                 a.Manage(choice);
