@@ -20,37 +20,21 @@ namespace Hom2
                 Console.WriteLine("6. View Project Status Reports");
                 Console.WriteLine("0. Exit");
 
-                int choice = int.Parse(Console.ReadLine());
+                int choice = 0;
+                if (Int32.TryParse(Console.ReadLine(), out int j))
+                {
+                    choice = j;
+                }
+                else
+                {
+                    Console.WriteLine("String could not be parsed.");
+                }
                 a.Manage(choice);
                 Console.WriteLine();
             }
 
         }
         
-    }
-    enum TaskStatus
-    {
-        NotStarted,
-        InProgress,
-        Completed
-    }
-
-    class Task
-    {
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public DateTime Deadline { get; set; }
-        public TaskStatus Status { get; set; }
-        public List<TeamMember> TeamMembers { get; set; }
-
-        public Task(string name, string description, DateTime deadline)
-        {
-            Name = name;
-            Description = description;
-            Deadline = deadline;
-            Status = TaskStatus.NotStarted;
-            TeamMembers = new List<TeamMember>();
-        }
     }
     class TeamMember
     {
