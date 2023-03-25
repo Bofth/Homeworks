@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hom2;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Xml.Linq;
@@ -70,6 +71,7 @@ namespace Hom2
     class ProjeckFunKtions
     {
         List<Project> projects = new List<Project>();
+        InputOutput inputAndOutput = new InputOutput();
         public void Manage(int choice)
         {
             if (choice == 0)
@@ -79,40 +81,40 @@ namespace Hom2
             switch (choice)
             {
                 case 1:
-                    Console.Write("Enter Project Name: ");
-                    string projectName = Redline();
-                    Console.WriteLine("Write to Deadline ((MM/dd/yyyy))");
-                    DateTime projectDeadline = DateTime.Parse(Redline());
+                    inputAndOutput.Output("Enter Project Name: ");
+                    string projectName = inputAndOutput.Redline();
+                    inputAndOutput.Output("Write to Deadline ((MM/dd/yyyy))");
+                    DateTime projectDeadline = DateTime.Parse(inputAndOutput.Redline());
                     byte choceOfAdd = 1;
                     string projectDescription = "-";
                     double projectBudget = 0;
                     while (choceOfAdd != 0)
                     {
-                        Console.WriteLine("Anything else you'd like to add?: ");
-                        Console.WriteLine("1.Description");
-                        Console.WriteLine("2.Project Budget");
-                        choceOfAdd = byte.Parse(Redline());
+                        inputAndOutput.Output("Anything else you'd like to add?: ");
+                        inputAndOutput.Output("1.Description");
+                        inputAndOutput.Output("2.Project Budget");
+                        choceOfAdd = byte.Parse(inputAndOutput.Redline());
                         if (choceOfAdd == 0) { break; }
                         switch(choceOfAdd)
                         {
                             case 1:
-                                Console.WriteLine("Write a description: ");
-                                projectDescription = Redline();
+                                inputAndOutput.Output("Write a description: ");
+                                projectDescription = inputAndOutput.Redline();
                                 break;
                             case 2:
-                                Console.WriteLine("Enter Project Budget: ");
-                                projectBudget = double.Parse(Redline());
+                                inputAndOutput.Output("Enter Project Budget: ");
+                                projectBudget = double.Parse(inputAndOutput.Redline());
                                 break;
                         }
                     }
                     Project project = new Project(projectName, projectDescription, projectDeadline, projectBudget);
                     projects.Add(project);
-                    Console.WriteLine("Project created successfully.");
+                    inputAndOutput.Output("Project created successfully.");
                     break;
 
                 case 2:
-                    Console.Write("Enter Project Name: ");
-                    projectName = Redline();
+                    inputAndOutput.Output("Enter Project Name: ");
+                    projectName = inputAndOutput.Redline();
                     project = projects.Find(p => p.Name == projectName);
 
                     if (project == null)
@@ -121,196 +123,196 @@ namespace Hom2
                         break;
                     }
 
-                    Console.Write("Enter Task Name: ");
-                    string taskName = Redline();
-                    Console.Write("Enter Task Description: ");
-                    string taskDescription = Redline();
-                    Console.Write("Enter Task Deadline (MM/dd/yyyy): ");
-                    DateTime taskDeadline = DateTime.Parse(Redline());
+                    inputAndOutput.Output("Enter Task Name: ");
+                    string taskName = inputAndOutput.Redline();
+                    inputAndOutput.Output("Enter Task Description: ");
+                    string taskDescription = inputAndOutput.Redline();
+                    inputAndOutput.Output("Enter Task Deadline (MM/dd/yyyy): ");
+                    DateTime taskDeadline = DateTime.Parse(inputAndOutput.Redline());
 
                     Task task = new Task(taskName, taskDescription, taskDeadline);
                     project.Tasks.Add(task);
-                    Console.WriteLine("Task added successfully.");
+                    inputAndOutput.Output("Task added successfully.");
                     break;
 
                 case 3:
-                    Console.Write("Enter Project Name: ");
-                    projectName = Redline();
+                    inputAndOutput.Output("Enter Project Name: ");
+                    projectName = inputAndOutput.Redline();
                     project = projects.Find(p => p.Name == projectName);
 
                     if (project == null)
                     {
-                        Console.WriteLine("Project not found.");
+                        inputAndOutput.Output("Project not found.");
                         break;
                     }
 
-                    Console.Write("Enter Task Name: ");
-                    taskName = Redline();
+                    inputAndOutput.Output("Enter Task Name: ");
+                    taskName = inputAndOutput.Redline();
                     task = project.Tasks.Find(t => t.Name == taskName);
 
                     if (task == null)
                     {
-                        Console.WriteLine("Task not found.");
+                        inputAndOutput.Output("Task not found.");
                         break;
                     }
 
                     project.Tasks.Remove(task);
-                    Console.WriteLine("Task removed successfully.");
+                    inputAndOutput.Output("Task removed successfully.");
                     break;
 
                 case 4:
-                    Console.Write("Enter Project Name: ");
-                    projectName = Redline();
+                    inputAndOutput.Output("Enter Project Name: ");
+                    projectName = inputAndOutput.Redline();
                     project = projects.Find(p => p.Name == projectName);
 
                     if (project == null)
                     {
-                        Console.WriteLine("Project not found.");
+                        inputAndOutput.Output("Project not found.");
                         break;
                     }
 
-                    Console.WriteLine("1. Edit Name");
-                    Console.WriteLine("2. Edit Description");
-                    Console.WriteLine("3. Edit Deadline");
-                    Console.WriteLine("4. Edit Budget");
+                    inputAndOutput.Output("1. Edit Name");
+                    inputAndOutput.Output("2. Edit Description");
+                    inputAndOutput.Output("3. Edit Deadline");
+                    inputAndOutput.Output("4. Edit Budget");
 
-                    int editChoice = int.Parse(Redline());
+                    int editChoice = int.Parse(inputAndOutput.Redline());
                     switch (editChoice)
                     {
                         case 1:
-                            Console.Write("Enter New Project Name: ");
-                            projectName = Redline();
+                            inputAndOutput.Output("Enter New Project Name: ");
+                            projectName = inputAndOutput.Redline();
                             project.Name = projectName;
-                            Console.WriteLine("Project name updated successfully.");
+                            inputAndOutput.Output("Project name updated successfully.");
                             break;
                         case 2:
-                            Console.Write("Enter New Project Description: ");
-                            projectDescription = Redline();
+                            inputAndOutput.Output("Enter New Project Description: ");
+                            projectDescription = inputAndOutput.Redline();
                             project.Description = projectDescription;
-                            Console.WriteLine("Project description updated successfully.");
+                            inputAndOutput.Output("Project description updated successfully.");
                             break;
                         case 3:
-                            Console.Write("Enter New Project Deadline (MM/dd/yyyy): ");
-                            projectDeadline = DateTime.Parse(Redline());
+                            inputAndOutput.Output("Enter New Project Deadline (MM/dd/yyyy): ");
+                            projectDeadline = DateTime.Parse(inputAndOutput.Redline());
                             project.Deadline = projectDeadline;
-                            Console.WriteLine("Project deadline updated successfully.");
+                            inputAndOutput.Output("Project deadline updated successfully.");
                             break;
                         case 4:
-                            Console.Write("Enter New Project Budget: ");
-                            projectBudget = double.Parse(Redline());
+                            inputAndOutput.Output("Enter New Project Budget: ");
+                            projectBudget = double.Parse(inputAndOutput.Redline());
                             project.Budget = projectBudget;
-                            Console.WriteLine("Project budget updated successfully.");
+                            inputAndOutput.Output("Project budget updated successfully.");
                             break;
                         default:
-                            Console.WriteLine("Invalid choice.");
+                            inputAndOutput.Output("Invalid choice.");
                             break;
                     }
                     break;
                 case 5:
-                    Console.Write("Enter Project Name: ");
-                    projectName = Redline();
+                    inputAndOutput.Output("Enter Project Name: ");
+                    projectName = inputAndOutput.Redline();
                     project = projects.Find(p => p.Name == projectName);
 
                     if (project == null)
                     {
-                        Console.WriteLine("Project not found.");
+                        inputAndOutput.Output("Project not found.");
                         break;
                     }
 
-                    Console.WriteLine("1. Add Team Member");
-                    Console.WriteLine("2. Remove Team Member");
-                    Console.WriteLine("3. Change Team Member Status");
+                    inputAndOutput.Output("1. Add Team Member");
+                    inputAndOutput.Output("2. Remove Team Member");
+                    inputAndOutput.Output("3. Change Team Member Status");
 
-                    int teamChoice = int.Parse(Redline());
+                    int teamChoice = int.Parse(inputAndOutput.Redline());
                     switch (teamChoice)
                     {
                         case 1:
-                            Console.Write("Enter Team Member Name: ");
-                            string teamMemberName = Redline();
-                            Console.Write("Enter Team Member Role: ");
-                            string teamMemberRole = Redline();
+                            inputAndOutput.Output("Enter Team Member Name: ");
+                            string teamMemberName = inputAndOutput.Redline();
+                            inputAndOutput.Output("Enter Team Member Role: ");
+                            string teamMemberRole = inputAndOutput.Redline();
 
                             TeamMember teamMember = new TeamMember(teamMemberName, teamMemberRole);
                             project.TeamMembers.Add(teamMember);
-                            Console.WriteLine("Team member added successfully.");
+                            inputAndOutput.Output("Team member added successfully.");
                             break;
                         case 2:
-                            Console.Write("Enter Team Member Name: ");
-                            teamMemberName = Redline();
+                            inputAndOutput.Output("Enter Team Member Name: ");
+                            teamMemberName = inputAndOutput.Redline();
                             teamMember = project.TeamMembers.Find(tm => tm.Name == teamMemberName);
 
                             if (teamMember == null)
                             {
-                                Console.WriteLine("Team member not found.");
+                                inputAndOutput.Output("Team member not found.");
                                 break;
                             }
 
                             project.TeamMembers.Remove(teamMember);
-                            Console.WriteLine("Team member removed successfully.");
+                            inputAndOutput.Output("Team member removed successfully.");
                             break;
                         case 3:
-                            Console.Write("Enter Team Member Name: ");
-                            teamMemberName = Console.ReadLine();
+                            inputAndOutput.Output("Enter Team Member Name: ");
+                            teamMemberName = inputAndOutput.Redline();
                             teamMember = project.TeamMembers.Find(tm => tm.Name == teamMemberName);
 
                             if (teamMember == null)
                             {
-                                Console.WriteLine("Team member not found.");
+                                inputAndOutput.Output("Team member not found.");
                                 break;
                             }
 
-                            Console.WriteLine("1. Set Status to In Progress");
-                            Console.WriteLine("2. Set Status to Completed");
+                            inputAndOutput.Output("1. Set Status to In Progress");
+                            inputAndOutput.Output("2. Set Status to Completed");
 
                             int statusChoice = int.Parse(Console.ReadLine());
                             switch (statusChoice)
                             {
                                 case 1:
                                     teamMember.Status = TaskStatus.InProgress;
-                                    Console.WriteLine("Team member status updated to In Progress.");
+                                    inputAndOutput.Output("Team member status updated to In Progress.");
                                     break;
                                 case 2:
                                     teamMember.Status = TaskStatus.Completed;
-                                    Console.WriteLine("Team member status updated to Completed.");
+                                    inputAndOutput.Output("Team member status updated to Completed.");
                                     break;
                                 default:
-                                    Console.WriteLine("Invalid choice.");
+                                    inputAndOutput.Output("Invalid choice.");
                                     break;
                             }
                             break;
                         default:
-                            Console.WriteLine("Invalid choice.");
+                            inputAndOutput.Output("Invalid choice.");
                             break;
                     }
                     break;
 
                 case 6:
-                    Console.Write("Enter Project Name: ");
-                    projectName = Redline();
+                    inputAndOutput.Output("Enter Project Name: ");
+                    projectName = inputAndOutput.Redline();
                     project = projects.Find(p => p.Name == projectName);
 
                     if (project == null)
                     {
-                        Console.WriteLine("Project not found.");
+                        inputAndOutput.Output("Project not found.");
                         break;
                     }
 
-                    Console.WriteLine($"Project Name: {project.Name}");
-                    Console.WriteLine($"Project Description: {project.Description}");
-                    Console.WriteLine($"Project Deadline: {project.Deadline.ToShortDateString()}");
-                    Console.WriteLine($"Project Budget: {project.Budget}");
+                    inputAndOutput.Output($"Project Name: {project.Name}");
+                    inputAndOutput.Output($"Project Description: {project.Description}");
+                    inputAndOutput.Output($"Project Deadline: {project.Deadline.ToShortDateString()}");
+                    inputAndOutput.Output($"Project Budget: {project.Budget}");
 
                     foreach (Task t in project.Tasks)
                     {
-                        Console.WriteLine($"Task Name: {t.Name}");
-                        Console.WriteLine($"Task Description: {t.Description}");
-                        Console.WriteLine($"Task Deadline: {t.Deadline.ToShortDateString()}");
-                        Console.WriteLine($"Task Status: {t.Status}");
+                        inputAndOutput.Output($"Task Name: {t.Name}");
+                        inputAndOutput.Output($"Task Description: {t.Description}");
+                        inputAndOutput.Output($"Task Deadline: {t.Deadline.ToShortDateString()}");
+                        inputAndOutput.Output($"Task Status: {t.Status}");
 
-                        Console.WriteLine("Assigned Team Members:");
+                        inputAndOutput.Output("Assigned Team Members:");
                         foreach (TeamMember tm in t.TeamMembers)
                         {
-                            Console.WriteLine($"- {tm.Name} ({tm.Role})");
+                            inputAndOutput.Output($"- {tm.Name} ({tm.Role})");
                         }
 
                         Console.WriteLine();
@@ -318,13 +320,26 @@ namespace Hom2
 
                     break;
                 default:
-                    Console.WriteLine("Invalid choice.");
+                    inputAndOutput.Output("Invalid choice.");
                     break;
             }
         }
-        private string Redline()
+        
+    }
+    class InputOutput
+    {
+        public string Redline()
         {
             return Console.ReadLine();
         }
+        public void Output(string Output)
+        {
+           Console.WriteLine(Output);
+        }
+    }
+    class AddTasckToProject
+    {
+
     }
 }
+
