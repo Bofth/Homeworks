@@ -80,13 +80,13 @@ namespace Hom2
             {
                 case 1:
                     Console.Write("Enter Project Name: ");
-                    string projectName = Console.ReadLine();
+                    string projectName = Redline();
                     Console.Write("Enter Project Description: ");
-                    string projectDescription = Console.ReadLine();
+                    string projectDescription = Redline();
                     Console.Write("Enter Project Deadline (MM/dd/yyyy): ");
-                    DateTime projectDeadline = DateTime.Parse(Console.ReadLine());
+                    DateTime projectDeadline = DateTime.Parse(Redline());
                     Console.Write("Enter Project Budget: ");
-                    double projectBudget = double.Parse(Console.ReadLine());
+                    double projectBudget = double.Parse(Redline());
 
                     Project project = new Project(projectName, projectDescription, projectDeadline, projectBudget);
                     projects.Add(project);
@@ -95,7 +95,7 @@ namespace Hom2
 
                 case 2:
                     Console.Write("Enter Project Name: ");
-                    projectName = Console.ReadLine();
+                    projectName = Redline();
                     project = projects.Find(p => p.Name == projectName);
 
                     if (project == null)
@@ -105,11 +105,11 @@ namespace Hom2
                     }
 
                     Console.Write("Enter Task Name: ");
-                    string taskName = Console.ReadLine();
+                    string taskName = Redline();
                     Console.Write("Enter Task Description: ");
-                    string taskDescription = Console.ReadLine();
+                    string taskDescription = Redline();
                     Console.Write("Enter Task Deadline (MM/dd/yyyy): ");
-                    DateTime taskDeadline = DateTime.Parse(Console.ReadLine());
+                    DateTime taskDeadline = DateTime.Parse(Redline());
 
                     Task task = new Task(taskName, taskDescription, taskDeadline);
                     project.Tasks.Add(task);
@@ -118,7 +118,7 @@ namespace Hom2
 
                 case 3:
                     Console.Write("Enter Project Name: ");
-                    projectName = Console.ReadLine();
+                    projectName = Redline();
                     project = projects.Find(p => p.Name == projectName);
 
                     if (project == null)
@@ -128,7 +128,7 @@ namespace Hom2
                     }
 
                     Console.Write("Enter Task Name: ");
-                    taskName = Console.ReadLine();
+                    taskName = Redline();
                     task = project.Tasks.Find(t => t.Name == taskName);
 
                     if (task == null)
@@ -143,7 +143,7 @@ namespace Hom2
 
                 case 4:
                     Console.Write("Enter Project Name: ");
-                    projectName = Console.ReadLine();
+                    projectName = Redline();
                     project = projects.Find(p => p.Name == projectName);
 
                     if (project == null)
@@ -157,30 +157,30 @@ namespace Hom2
                     Console.WriteLine("3. Edit Deadline");
                     Console.WriteLine("4. Edit Budget");
 
-                    int editChoice = int.Parse(Console.ReadLine());
+                    int editChoice = int.Parse(Redline());
                     switch (editChoice)
                     {
                         case 1:
                             Console.Write("Enter New Project Name: ");
-                            projectName = Console.ReadLine();
+                            projectName = Redline();
                             project.Name = projectName;
                             Console.WriteLine("Project name updated successfully.");
                             break;
                         case 2:
                             Console.Write("Enter New Project Description: ");
-                            projectDescription = Console.ReadLine();
+                            projectDescription = Redline();
                             project.Description = projectDescription;
                             Console.WriteLine("Project description updated successfully.");
                             break;
                         case 3:
                             Console.Write("Enter New Project Deadline (MM/dd/yyyy): ");
-                            projectDeadline = DateTime.Parse(Console.ReadLine());
+                            projectDeadline = DateTime.Parse(Redline());
                             project.Deadline = projectDeadline;
                             Console.WriteLine("Project deadline updated successfully.");
                             break;
                         case 4:
                             Console.Write("Enter New Project Budget: ");
-                            projectBudget = double.Parse(Console.ReadLine());
+                            projectBudget = double.Parse(Redline());
                             project.Budget = projectBudget;
                             Console.WriteLine("Project budget updated successfully.");
                             break;
@@ -191,7 +191,7 @@ namespace Hom2
                     break;
                 case 5:
                     Console.Write("Enter Project Name: ");
-                    projectName = Console.ReadLine();
+                    projectName = Redline();
                     project = projects.Find(p => p.Name == projectName);
 
                     if (project == null)
@@ -204,14 +204,14 @@ namespace Hom2
                     Console.WriteLine("2. Remove Team Member");
                     Console.WriteLine("3. Change Team Member Status");
 
-                    int teamChoice = int.Parse(Console.ReadLine());
+                    int teamChoice = int.Parse(Redline());
                     switch (teamChoice)
                     {
                         case 1:
                             Console.Write("Enter Team Member Name: ");
-                            string teamMemberName = Console.ReadLine();
+                            string teamMemberName = Redline();
                             Console.Write("Enter Team Member Role: ");
-                            string teamMemberRole = Console.ReadLine();
+                            string teamMemberRole = Redline();
 
                             TeamMember teamMember = new TeamMember(teamMemberName, teamMemberRole);
                             project.TeamMembers.Add(teamMember);
@@ -219,7 +219,7 @@ namespace Hom2
                             break;
                         case 2:
                             Console.Write("Enter Team Member Name: ");
-                            teamMemberName = Console.ReadLine();
+                            teamMemberName = Redline();
                             teamMember = project.TeamMembers.Find(tm => tm.Name == teamMemberName);
 
                             if (teamMember == null)
@@ -269,7 +269,7 @@ namespace Hom2
 
                 case 6:
                     Console.Write("Enter Project Name: ");
-                    projectName = Console.ReadLine();
+                    projectName = Redline();
                     project = projects.Find(p => p.Name == projectName);
 
                     if (project == null)
@@ -300,11 +300,14 @@ namespace Hom2
                     }
 
                     break;
-
                 default:
                     Console.WriteLine("Invalid choice.");
                     break;
             }
+        }
+        private string Redline()
+        {
+            return Console.ReadLine();
         }
     }
 }
