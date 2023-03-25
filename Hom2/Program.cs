@@ -81,13 +81,30 @@ namespace Hom2
                 case 1:
                     Console.Write("Enter Project Name: ");
                     string projectName = Redline();
-                    Console.Write("Enter Project Description: ");
-                    string projectDescription = Redline();
-                    Console.Write("Enter Project Deadline (MM/dd/yyyy): ");
+                    Console.WriteLine("Write to Deadline ((MM/dd/yyyy))");
                     DateTime projectDeadline = DateTime.Parse(Redline());
-                    Console.Write("Enter Project Budget: ");
-                    double projectBudget = double.Parse(Redline());
-
+                    byte choceOfAdd = 1;
+                    string projectDescription = "-";
+                    double projectBudget = 0;
+                    while (choceOfAdd != 0)
+                    {
+                        Console.WriteLine("Anything else you'd like to add?: ");
+                        Console.WriteLine("1.Description");
+                        Console.WriteLine("2.Project Budget");
+                        choceOfAdd = byte.Parse(Redline());
+                        if (choceOfAdd == 0) { break; }
+                        switch(choceOfAdd)
+                        {
+                            case 1:
+                                Console.WriteLine("Write a description: ");
+                                projectDescription = Redline();
+                                break;
+                            case 2:
+                                Console.WriteLine("Enter Project Budget: ");
+                                projectBudget = double.Parse(Redline());
+                                break;
+                        }
+                    }
                     Project project = new Project(projectName, projectDescription, projectDeadline, projectBudget);
                     projects.Add(project);
                     Console.WriteLine("Project created successfully.");
