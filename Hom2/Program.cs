@@ -337,9 +337,6 @@ namespace Hom2
            Console.WriteLine(Output);
         }
     }
-    class AddTasckToProject
-    {
-
-    }
+    
 }
 
