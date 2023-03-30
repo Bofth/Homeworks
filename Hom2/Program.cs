@@ -10,7 +10,7 @@ namespace Hom2
     {
         static void Main(string[] args)
         {
-            ProjeckFunKtions a = new();
+            ProjectFunctions a = new();
             while (true)
             {
                 Console.WriteLine("1. Create Project");
@@ -68,7 +68,7 @@ namespace Hom2
             TeamMembers = new List<TeamMember>();
         }
     }
-    class ProjeckFunKtions
+    class ProjectFunctions
     {
         List<Project> projects = new List<Project>();
         InputOutput inputAndOutput = new InputOutput();
