@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33424.131
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hom4", "..\..\hom4\Hom4\Hom4\Hom4.csproj", "{635D5AFF-2D36-4B45-98E5-1F1BFDC4F4C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hom4_part2", "..\..\hom4\Hom4\Hom4_part2\Hom4_part2.csproj", "{5B52FBD1-AFA7-4A8C-AE6E-1E3A379882B0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{635D5AFF-2D36-4B45-98E5-1F1BFDC4F4C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{635D5AFF-2D36-4B45-98E5-1F1BFDC4F4C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{635D5AFF-2D36-4B45-98E5-1F1BFDC4F4C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{635D5AFF-2D36-4B45-98E5-1F1BFDC4F4C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B52FBD1-AFA7-4A8C-AE6E-1E3A379882B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B52FBD1-AFA7-4A8C-AE6E-1E3A379882B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B52FBD1-AFA7-4A8C-AE6E-1E3A379882B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B52FBD1-AFA7-4A8C-AE6E-1E3A379882B0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {45C7ECAB-7A4D-478B-9315-42994CE85407}
+	EndGlobalSection
+EndGlobal
